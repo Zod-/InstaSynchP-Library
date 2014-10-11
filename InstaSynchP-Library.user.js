@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        InstaSynchP Library
-// @namespace   InstasynchP
+// @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
 // @version     1
