@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name        InstaSynchP Library
-// @namespace   InstasynchP
+// @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1
+// @version     1.0.1
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     GPL-3.0
