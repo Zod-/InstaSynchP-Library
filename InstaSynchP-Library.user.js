@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.0.2
+// @version     1.0.3
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     GPL-3.0
@@ -15,11 +15,6 @@
 // @grant       none
 // @run-at      document-start
 // ==/UserScript==
-
-//parent class for all plugins
-function Plugin(version){
-    this.version = version;
-}
 
 if (!window.pluginLibrary) {
     if (typeof String.prototype.startsWith !== 'function') {
