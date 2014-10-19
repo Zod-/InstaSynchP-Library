@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.0.5
+// @version     1.0.6
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     GPL-3.0
@@ -49,6 +49,11 @@ function isBlackname(username) {
         return false;
     }
     return username.match(/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/) !== null;
+}
+
+function htmlDecode(value) {
+    "use strict";
+    return $('<div/>').html(value).text();
 }
 
 function activeVideoIndex() {
