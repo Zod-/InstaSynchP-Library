@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.0.6
+// @version     1.0.7
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     GPL-3.0
@@ -37,11 +37,17 @@ if (typeof String.prototype.format !== 'function') {
 }
 //http://stackoverflow.com/a/646643
 if (typeof String.prototype.startsWith !== 'function') {
-    // see below for better implementation!
     String.prototype.startsWith = function (str) {
-        return this.indexOf(str) === 0;
+        return this.slice(0, str.length) == str;
     };
 }
+
+if (typeof String.prototype.contains !== 'function') {
+    String.prototype.contains = function (it) {
+        return this.indexOf(it) !== -1;
+    };
+}
+
 
 function isBlackname(username) {
     "use strict";
