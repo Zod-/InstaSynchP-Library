@@ -41,7 +41,13 @@ if (typeof String.prototype.startsWith !== 'function') {
         return this.slice(0, str.length) == str;
     };
 }
+if (typeof String.prototype.endsWith != 'function') {
+  String.prototype.endsWith = function (str){
+    return this.slice(-str.length) == str;
+  };
+}
 
+//http://stackoverflow.com/a/1978419
 if (typeof String.prototype.contains !== 'function') {
     String.prototype.contains = function (it) {
         return this.indexOf(it) !== -1;
@@ -78,7 +84,7 @@ function findUserId(id) {
     return undefined;
 }
 
-function findUserName(name) {
+function findUserUsername(name) {
     "use strict";
     var i;
     for (i = 0; i < window.users.length; i += 1) {

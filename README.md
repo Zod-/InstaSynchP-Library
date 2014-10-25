@@ -3,6 +3,92 @@ InstaSynchP-Library
 
 Basic function that are needed by several scripts use with @require
 
+Functions
+---------
+#### `String.prototype.format`
+[StackOverflow](http://stackoverflow.com/a/4673436)
+```javascript
+'{0}: {1}'.format(user, message)
+```
+
+#### `String.prototype.startsWith`
+[StackOverflow](http://stackoverflow.com/a/646643)
+```javascript
+'string'.startsWith('str')
+```
+#### `String.prototype.endsWith`
+[StackOverflow](http://stackoverflow.com/a/646643)
+```javascript
+'string'.endsWith('ing')
+```
+
+#### `String.prototype.contains`
+[StackOverflow](http://stackoverflow.com/a/1978419)
+```javascript
+'string'.contains('ri')
+```
+
+#### `isBlackname`
+Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname (greyname would be `{1,16}`)
+```javascript
+isBlackname('username')
+```
+
+#### `htmlDecode`
+Decodes html tags from a string
+```javascript
+htmlDecode('&gt;')
+```
+
+#### `activeVideoIndex`
+Returns the index of the active video
+```javascript
+activeVideoIndex()
+```
+
+#### `findUserId`
+Find user by their id
+```javascript
+findUserId('id')
+```
+
+#### `findUserUsername`
+Find user by their username
+```javascript
+findUserUsername('username')
+```
+
+#### `videojs`
+Returns the video-js object
+```javascript
+videojs()
+```
+
+#### `reloadPlayer`
+Reloads the player
+```javascript
+reloadPlayer()
+```
+
+#### `addSystemMessage`
+Add a system message to the chat
+```javascript
+addSystemMessage('message')
+```
+
+#### `addErrorMessage`
+Add an error message to the chat
+```javascript
+addErrorMessage('error message')
+```
+
+#### `videoInfoEquals`
+Compare two videoinfo objects for equality
+```javascript
+videoInfoEquals(info1, info2)
+```
+
+
 License
 -----------
 <InstaSynch - Watch Videos with friends.>
