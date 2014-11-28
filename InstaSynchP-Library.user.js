@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.0.7
+// @version     1.0.8
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -60,7 +60,15 @@ function isBlackname(username) {
     if (typeof username !== 'string') {
         return false;
     }
-    return username.match(/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/) !== null;
+    return username.match(/^(?:[A-Za-z0-9]|(?:[\-_](?![\-_]))){5,16}$/) !== null;
+}
+
+function isGreyname(username) {
+    "use strict";
+    if (typeof username !== 'string') {
+        return false;
+    }
+    return username.match(/^(?:[A-Za-z0-9]|(?:[\-_](?![\-_]))){1,16}$/) !== null;
 }
 
 function htmlDecode(value) {
