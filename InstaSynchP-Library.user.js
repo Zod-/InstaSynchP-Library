@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.1
+// @version     1.1.2
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -55,9 +55,12 @@ if (typeof String.prototype.contains !== 'function') {
 }
 
 function commonPrefix(array) {
-    var sorted = array.slice(0).sort(function(a,b){
-        return a.toLowerCase().localeCompare(b.toLowerCase());
-    }),
+    if (typeof array === 'undefined' || array.length === 0) {
+        return;
+    }
+    var sorted = array.slice(0).sort(function (a, b) {
+            return a.toLowerCase().localeCompare(b.toLowerCase());
+        }),
         first = sorted[0],
         firstLower = first.toLowerCase(),
         last = sorted[sorted.length - 1].toLowerCase(),
