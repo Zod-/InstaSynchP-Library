@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.0.8
+// @version     1.0.9
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -42,9 +42,9 @@ if (typeof String.prototype.startsWith !== 'function') {
     };
 }
 if (typeof String.prototype.endsWith != 'function') {
-  String.prototype.endsWith = function (str){
-    return this.slice(-str.length) == str;
-  };
+    String.prototype.endsWith = function (str) {
+        return this.slice(-str.length) == str;
+    };
 }
 
 //http://stackoverflow.com/a/1978419
@@ -54,6 +54,17 @@ if (typeof String.prototype.contains !== 'function') {
     };
 }
 
+function commonPrefix(array) {
+    var sorted = array.slice(0).sort(function(a,b){
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    }),
+        first = sorted[0].toLowerCase(),
+        last = sorted[arr.length - 1].toLowerCase(),
+        L = first.length,
+        i = 0;
+    while (i < L && first.charAt(i) === last.charAt(i)) i++;
+    return first.substring(0, i);
+}
 
 function isBlackname(username) {
     "use strict";
