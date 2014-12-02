@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1
+// @version     1.1.1
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -60,7 +60,7 @@ function commonPrefix(array) {
     }),
         first = sorted[0],
         firstLower = first.toLowerCase(),
-        last = sorted[arr.length - 1].toLowerCase(),
+        last = sorted[sorted.length - 1].toLowerCase(),
         L = first.length,
         i = 0;
     while (i < L && firstLower.charAt(i) === last.charAt(i)) i++;
