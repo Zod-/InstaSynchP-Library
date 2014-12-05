@@ -28,6 +28,18 @@ Functions
 'string'.contains('ri')
 ```
 
+#### `isUdef`
+Is an object undefined
+```javascript
+isUdef(obj)
+```
+
+#### `commonPrefix`
+Get the common prefix from an array of strings
+```javascript
+commonPrefix(['foobaz', 'fobar', 'foobap']) => 'fo'
+```
+
 #### `isBlackname`
 Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname (greyname would be `{1,16}`)
 ```javascript

@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.2
+// @version     1.1.3
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -52,6 +52,10 @@ if (typeof String.prototype.contains !== 'function') {
     String.prototype.contains = function (it) {
         return this.indexOf(it) !== -1;
     };
+}
+
+function isUdef(obj){
+    return typeof obj === 'undefined';
 }
 
 function commonPrefix(array) {
