@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.3
+// @version     1.1.4
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -160,4 +160,9 @@ function videoInfoEquals(a, b) {
     return true;
   }
   return false;
+}
+
+function scrollDown(){
+  "use strict";
+  $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
 }

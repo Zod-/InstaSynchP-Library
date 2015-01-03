@@ -99,6 +99,11 @@ Compare two videoinfo objects for equality
 ```javascript
 videoInfoEquals(info1, info2)
 ```
+#### `scrollDown`
+Scroll the chat to the bottom
+```javascript
+scrollDown()
+```
 
 License
 -----------
