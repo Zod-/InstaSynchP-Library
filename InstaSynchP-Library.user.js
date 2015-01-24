@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.4
+// @version     1.1.5
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -103,9 +103,9 @@ function activeVideoIndex() {
 function findUserId(id) {
   "use strict";
   var i;
-  for (i = 0; i < window.users.length; i += 1) {
-    if (id === window.users[i].id) {
-      return window.users[i];
+  for (i = 0; i < window.room.userlist.users.length; i += 1) {
+    if (id === window.room.userlist.users[i].id) {
+      return window.room.userlist.users[i];
     }
   }
   return undefined;
@@ -114,9 +114,9 @@ function findUserId(id) {
 function findUserUsername(name) {
   "use strict";
   var i;
-  for (i = 0; i < window.users.length; i += 1) {
-    if (name === window.users[i].name) {
-      return window.users[i];
+  for (i = 0; i < window.room.userlist.users.length; i += 1) {
+    if (name === window.room.userlist.users[i].name) {
+      return window.room.userlist.users[i];
     }
   }
   return undefined;
@@ -129,24 +129,26 @@ function videojs() {
 
 function reloadPlayer() {
   "use strict";
-  if (window.video) {
-    window.video.destroy();
+  return;
+  if (window.room.video) {
+    window.room.video.destroy();
   }
+  //.sendcmd isn't on the beta yet
   window.global.sendcmd('reload', null);
 }
 
 function addSystemMessage(message) {
   "use strict";
-  window.addMessage({
+  window.room.addMessage({
     username: ""
-  }, message, 'system');
+  }, message, 'text-info');
 }
 
 function addErrorMessage(message) {
   "use strict";
-  window.addMessage({
+  window.room.addMessage({
     username: ""
-  }, message, 'errortext');
+  }, message, 'text-danger');
 }
 
 function videoInfoEquals(a, b) {
@@ -154,15 +156,12 @@ function videoInfoEquals(a, b) {
   if (!a || !b) {
     return false;
   }
-  if (a.provider && a.provider === b.provider &&
+  return (a.provider && a.provider === b.provider &&
     a.mediaType && a.mediaType === b.mediaType &&
-    a.id && a.id === b.id) {
-    return true;
-  }
-  return false;
+    a.id && a.id === b.id);
 }
 
 function scrollDown(){
   "use strict";
-  $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+  $('#chat_messages').scrollTop($('#chat_messages')[0].scrollHeight);
 }
