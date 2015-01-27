@@ -33,6 +33,11 @@ Is an object undefined
 ```javascript
 isUdef(obj)
 ```
+#### `sendMessage`
+Send a message to the chat
+```javascript
+sendMessage('message')
+```
 
 #### `commonPrefix`
 Get the common prefix from an array of strings

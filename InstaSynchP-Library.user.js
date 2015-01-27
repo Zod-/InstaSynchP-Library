@@ -129,12 +129,14 @@ function videojs() {
 
 function reloadPlayer() {
   "use strict";
-  return;
   if (window.room.video) {
     window.room.video.destroy();
   }
-  //.sendcmd isn't on the beta yet
-  window.global.sendcmd('reload', null);
+  window.room.socket.sendcmd('reload', null);
+}
+
+function sendMessage(message){
+  window.room.socket.sendmsg(message);
 }
 
 function addSystemMessage(message) {
