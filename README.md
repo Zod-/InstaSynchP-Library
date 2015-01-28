@@ -46,9 +46,15 @@ commonPrefix(['foobaz', 'fobar', 'foobap']) => 'fo'
 ```
 
 #### `isBlackname`
-Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname (greyname would be `{1,16}`)
+Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname
 ```javascript
 isBlackname('username')
+```
+
+#### `isGreyname`
+Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){1,16}$/` regex if the string could be a greyname
+```javascript
+isGreyname('username')
 ```
 
 #### `htmlDecode`
