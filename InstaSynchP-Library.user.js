@@ -55,10 +55,12 @@ if (typeof String.prototype.contains !== 'function') {
 }
 
 function isUdef(obj) {
+  "use strict";
   return typeof obj === 'undefined';
 }
 
 function commonPrefix(array) {
+  "use strict";
   if (typeof array === 'undefined' || array.length === 0) {
     return;
   }
@@ -137,7 +139,8 @@ function reloadPlayer() {
 }
 
 function sendcmd(cmd, opts) {
-    window.room.sendcmd(cmd, opts);
+  "use strict";
+  window.room.sendcmd(cmd, opts);
 }
 
 function addSystemMessage(message) {
@@ -169,16 +172,16 @@ function scrollDown() {
   $('#chat_messages').scrollTop($('#chat_messages')[0].scrollHeight);
 }
 
-function isMod(username){
+function isMod(username) {
   "use strict";
-  if(isUdef(username)){
+  if (isUdef(username)) {
     return window.room.user.isMod;
-  }else{
+  } else {
     return findUserUsername(username).permissions > 0;
   }
 }
 
-function thisUser(){
+function thisUser() {
   "use strict";
   return room.user.userinfo;
 }
