@@ -63,6 +63,19 @@ Returns the index of the active video
 activeVideoIndex()
 ```
 
+#### `isMod`
+Is this or any user a mod
+```javascript
+isMod()
+isMod('user')
+```
+
+#### `thisUser`
+The user object of this user
+```javascript
+thisUser()
+```
+
 #### `findUserId`
 Find user by their id
 ```javascript

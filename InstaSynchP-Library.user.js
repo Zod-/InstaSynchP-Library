@@ -102,10 +102,10 @@ function activeVideoIndex() {
 
 function findUserId(id) {
   "use strict";
-  var i;
-  for (i = 0; i < window.room.userlist.users.length; i += 1) {
-    if (id === window.room.userlist.users[i].id) {
-      return window.room.userlist.users[i];
+  var i, users = window.room.userlist.users;
+  for (i = 0; i < users.length; i += 1) {
+    if (id === users[i].id) {
+      return users[i];
     }
   }
   return undefined;
@@ -113,10 +113,11 @@ function findUserId(id) {
 
 function findUserUsername(name) {
   "use strict";
-  var i;
-  for (i = 0; i < window.room.userlist.users.length; i += 1) {
-    if (name === window.room.userlist.users[i].name) {
-      return window.room.userlist.users[i];
+  name = name.toLowerCase();
+  var i, users = window.room.userlist.users;
+  for (i = 0; i < users.length; i += 1) {
+    if (name === users[i].username.toLowerCase()) {
+      return users[i];
     }
   }
   return undefined;
@@ -132,11 +133,11 @@ function reloadPlayer() {
   if (window.room.video) {
     window.room.video.destroy();
   }
-  window.room.socket.sendcmd('reload', null);
+  window.room.sendcmd('reload', null);
 }
 
-function sendMessage(message){
-  window.room.socket.sendmsg(message);
+function sendcmd(cmd, opts) {
+    window.room.sendcmd(cmd, opts);
 }
 
 function addSystemMessage(message) {
@@ -163,7 +164,21 @@ function videoInfoEquals(a, b) {
     a.id && a.id === b.id);
 }
 
-function scrollDown(){
+function scrollDown() {
   "use strict";
   $('#chat_messages').scrollTop($('#chat_messages')[0].scrollHeight);
+}
+
+function isMod(username){
+  "use strict";
+  if(isUdef(username)){
+    return window.room.user.isMod;
+  }else{
+    return findUserUsername(username).permissions > 0;
+  }
+}
+
+function thisUser(){
+  "use strict";
+  return room.user.userinfo;
 }
