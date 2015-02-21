@@ -28,10 +28,21 @@ Functions
 'string'.contains('ri')
 ```
 
+#### `Array.prototype.contains`
+[StackOverflow](http://stackoverflow.com/a/1978419)
+```javascript
+['a', 'b', 'c'].contains('b')
+```
+
 #### `isUdef`
 Is an object undefined
 ```javascript
 isUdef(obj)
+```
+#### `sendMessage`
+Send a message to the chat
+```javascript
+sendMessage('message')
 ```
 
 #### `commonPrefix`
@@ -41,9 +52,15 @@ commonPrefix(['foobaz', 'fobar', 'foobap']) => 'fo'
 ```
 
 #### `isBlackname`
-Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname (greyname would be `{1,16}`)
+Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){5,16}$/` regex if the string could be a blackname
 ```javascript
 isBlackname('username')
+```
+
+#### `isGreyname`
+Checks according to `/^([A-Za-z0-9]|([\-_](?![\-_]))){1,16}$/` regex if the string could be a greyname
+```javascript
+isGreyname('username')
 ```
 
 #### `htmlDecode`
@@ -56,6 +73,19 @@ htmlDecode('&gt;')
 Returns the index of the active video
 ```javascript
 activeVideoIndex()
+```
+
+#### `isMod`
+Is this or any user a mod
+```javascript
+isMod()
+isMod('user')
+```
+
+#### `thisUser`
+The user object of this user
+```javascript
+thisUser()
 ```
 
 #### `findUserId`
@@ -103,6 +133,11 @@ videoInfoEquals(info1, info2)
 Scroll the chat to the bottom
 ```javascript
 scrollDown()
+```
+#### `logger`
+reference to the logger
+```javascript
+logger()
 ```
 
 License

@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.4
+// @version     1.1.5
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -53,12 +53,19 @@ if (typeof String.prototype.contains !== 'function') {
     return this.indexOf(it) !== -1;
   };
 }
+if (typeof Array.prototype.contains !== 'function') {
+  Array.prototype.contains = function (it) {
+    return this.indexOf(it) !== -1;
+  };
+}
 
 function isUdef(obj) {
+  "use strict";
   return typeof obj === 'undefined';
 }
 
 function commonPrefix(array) {
+  "use strict";
   if (typeof array === 'undefined' || array.length === 0) {
     return;
   }
@@ -102,10 +109,10 @@ function activeVideoIndex() {
 
 function findUserId(id) {
   "use strict";
-  var i;
-  for (i = 0; i < window.users.length; i += 1) {
-    if (id === window.users[i].id) {
-      return window.users[i];
+  var i, users = window.room.userlist.users;
+  for (i = 0; i < users.length; i += 1) {
+    if (id === users[i].id) {
+      return users[i];
     }
   }
   return undefined;
@@ -113,10 +120,11 @@ function findUserId(id) {
 
 function findUserUsername(name) {
   "use strict";
-  var i;
-  for (i = 0; i < window.users.length; i += 1) {
-    if (name === window.users[i].name) {
-      return window.users[i];
+  name = name.toLowerCase();
+  var i, users = window.room.userlist.users;
+  for (i = 0; i < users.length; i += 1) {
+    if (name === users[i].username.toLowerCase()) {
+      return users[i];
     }
   }
   return undefined;
@@ -129,24 +137,29 @@ function videojs() {
 
 function reloadPlayer() {
   "use strict";
-  if (window.video) {
-    window.video.destroy();
+  if (window.room.video) {
+    window.room.video.destroy();
   }
-  window.global.sendcmd('reload', null);
+  window.room.sendcmd('reload', null);
+}
+
+function sendcmd(cmd, opts) {
+  "use strict";
+  window.room.sendcmd(cmd, opts);
 }
 
 function addSystemMessage(message) {
   "use strict";
-  window.addMessage({
+  window.room.addMessage({
     username: ""
-  }, message, 'system');
+  }, message, 'text-info');
 }
 
 function addErrorMessage(message) {
   "use strict";
-  window.addMessage({
+  window.room.addMessage({
     username: ""
-  }, message, 'errortext');
+  }, message, 'text-danger');
 }
 
 function videoInfoEquals(a, b) {
@@ -154,15 +167,31 @@ function videoInfoEquals(a, b) {
   if (!a || !b) {
     return false;
   }
-  if (a.provider && a.provider === b.provider &&
+  return (a.provider && a.provider === b.provider &&
     a.mediaType && a.mediaType === b.mediaType &&
-    a.id && a.id === b.id) {
-    return true;
-  }
-  return false;
+    a.id && a.id === b.id);
 }
 
-function scrollDown(){
+function scrollDown() {
   "use strict";
-  $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+  $('#chat_messages').scrollTop($('#chat_messages')[0].scrollHeight);
+}
+
+function isMod(username) {
+  "use strict";
+  if (isUdef(username)) {
+    return window.room.user.isMod;
+  } else {
+    return findUserUsername(username).permissions > 0;
+  }
+}
+
+function thisUser() {
+  "use strict";
+  return room.user.userinfo;
+}
+
+function logger() {
+  "use strict";
+  return window.plugins.logger.log;
 }
