@@ -193,5 +193,5 @@ function thisUser() {
 
 function logger() {
   "use strict";
-  return window.plugins.core.logger;
+  return window.plugins.logger.log;
 }
