@@ -28,6 +28,12 @@ Functions
 'string'.contains('ri')
 ```
 
+#### `Array.prototype.contains`
+[StackOverflow](http://stackoverflow.com/a/1978419)
+```javascript
+['a', 'b', 'c'].contains('b')
+```
+
 #### `isUdef`
 Is an object undefined
 ```javascript
@@ -127,6 +133,11 @@ videoInfoEquals(info1, info2)
 Scroll the chat to the bottom
 ```javascript
 scrollDown()
+```
+#### `logger`
+reference to the logger
+```javascript
+logger()
 ```
 
 License

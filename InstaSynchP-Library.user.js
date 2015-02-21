@@ -53,6 +53,11 @@ if (typeof String.prototype.contains !== 'function') {
     return this.indexOf(it) !== -1;
   };
 }
+if (typeof Array.prototype.contains !== 'function') {
+  Array.prototype.contains = function (it) {
+    return this.indexOf(it) !== -1;
+  };
+}
 
 function isUdef(obj) {
   "use strict";
@@ -184,4 +189,9 @@ function isMod(username) {
 function thisUser() {
   "use strict";
   return room.user.userinfo;
+}
+
+function logger() {
+  "use strict";
+  return window.plugins.core.logger;
 }
