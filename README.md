@@ -140,6 +140,16 @@ reference to the logger
 logger()
 ```
 
+#### `createNavTab`
+create a tab button
+```javascript
+createNavTab({
+  tooltip: 'Tooltip',
+  tab: '#tab_reference',
+  class: 'fa fa-tab-icon'
+})
+```
+
 License
 -----------
 The MIT License (MIT)<br>

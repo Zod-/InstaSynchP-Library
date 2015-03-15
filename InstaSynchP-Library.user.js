@@ -3,15 +3,13 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.5
+// @version     1.1.6
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
 
-// @include     http://*.instasynch.com/*
-// @include     http://instasynch.com/*
-// @include     http://*.instasync.com/*
-// @include     http://instasync.com/*
+// @include     *://instasync.com/r/*
+// @include     *://*.instasync.com/r/*
 // @grant       none
 // @run-at      document-start
 // ==/UserScript==
@@ -194,4 +192,22 @@ function thisUser() {
 function logger() {
   "use strict";
   return window.plugins.logger.log;
+}
+
+function createNavTab(op){
+  "use strict";
+  return $('<li>').append(
+    $('<a>',{
+      class: 'active_tooltip',
+      'data-original-title': op.tooltip,
+      href: op.tab,
+      'data-toggle': 'tab',
+      rel: 'tooltip',
+      'data-placement': 'bottom'
+    }).append(
+      $('<i>',{
+        class: op.class
+      })
+    ).tooltip()
+  );
 }
