@@ -133,17 +133,19 @@ function videojs() {
   return $('.video-js')[0];
 }
 
-function reloadPlayer() {
-  "use strict";
-  if (window.room.video) {
-    window.room.video.destroy();
-  }
-  window.room.sendcmd('reload', null);
-}
-
 function sendcmd(cmd, opts) {
   "use strict";
   window.room.sendcmd(cmd, opts);
+}
+
+function reloadPlayer() {
+  "use strict";
+  if (window.room.video) {
+    try {
+      window.room.video.destroy();
+    } catch (ignore) {}
+  }
+  sendcmd('reload', null);
 }
 
 function addSystemMessage(message) {
@@ -194,10 +196,10 @@ function logger() {
   return window.plugins.logger.log;
 }
 
-function createNavTab(op){
+function createNavTab(op) {
   "use strict";
   return $('<li>').append(
-    $('<a>',{
+    $('<a>', {
       class: 'active_tooltip',
       'data-original-title': op.tooltip,
       href: op.tab,
@@ -205,7 +207,7 @@ function createNavTab(op){
       rel: 'tooltip',
       'data-placement': 'bottom'
     }).append(
-      $('<i>',{
+      $('<i>', {
         class: op.class
       })
     ).tooltip()
