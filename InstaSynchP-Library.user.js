@@ -3,7 +3,7 @@
 // @namespace   InstaSynchP
 // @description Basic function that are needed by several scripts use with @require
 
-// @version     1.1.7
+// @version     1.1.8
 // @author      Zod-
 // @source      https://github.com/Zod-/InstaSynchP-Library
 // @license     MIT
@@ -205,7 +205,7 @@ function createNavTab(op) {
       href: op.tab,
       'data-toggle': 'tab',
       rel: 'tooltip',
-      'data-placement': 'bottom'
+      'data-placement': op.tooltipPlacement || 'bottom'
     }).append(
       $('<i>', {
         class: op.class
